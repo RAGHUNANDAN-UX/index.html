@@ -289,6 +289,76 @@ footer{border-top:1px solid var(--line);font-size:.82rem}
  .lab{transition:none}
 }
 
+
+/* ===== SIGNATURE PREMIUM PORTFOLIO PASS ===== */
+:root{
+ --paper:#060914;--surface:#0E1728;--ink:#F4F7FF;--muted:#A0AEC4;
+ --line:rgba(166,190,226,.15);--accent:#8BE9F4;--on-accent:#06111A;
+ --link:#9BEAF4;--panel:#0B1425;
+}
+:root[data-theme="light"]{
+ --paper:#F4F7FB;--surface:#FFFFFF;--ink:#101A2B;--muted:#52627A;
+ --line:rgba(22,45,77,.14);--accent:#087F9B;--on-accent:#FFFFFF;
+ --link:#087F9B;--panel:#101D31;
+}
+body{
+ background-color:var(--paper);
+ background-image:
+  linear-gradient(rgba(125,157,202,.035) 1px,transparent 1px),
+  linear-gradient(90deg,rgba(125,157,202,.035) 1px,transparent 1px),
+  radial-gradient(ellipse at 15% 5%,rgba(32,111,170,.18),transparent 38rem),
+  radial-gradient(ellipse at 90% 30%,rgba(111,79,191,.13),transparent 38rem);
+ background-size:42px 42px,42px 42px,auto,auto;
+ background-attachment:fixed;
+}
+:root[data-theme="light"] body{
+ background-image:linear-gradient(rgba(36,71,110,.035) 1px,transparent 1px),
+ linear-gradient(90deg,rgba(36,71,110,.035) 1px,transparent 1px),
+ radial-gradient(ellipse at 15% 5%,rgba(38,154,190,.09),transparent 38rem),
+ radial-gradient(ellipse at 90% 30%,rgba(130,111,206,.08),transparent 38rem);
+}
+.bar{border-bottom:1px solid var(--line);box-shadow:0 8px 30px rgba(0,0,0,.08)}
+.bar .wrap{min-height:78px}
+.brand{font-size:1.22rem}
+.bar nav a{padding:7px 0}
+.hero{min-height:610px;display:flex;align-items:center}
+.hero .wrap{width:100%;grid-template-columns:1.02fr .98fr;gap:clamp(28px,5vw,72px)}
+.hero h1{font-size:clamp(4rem,8.5vw,7.5rem);letter-spacing:-.085em;line-height:.88;margin:18px 0 28px}
+.hero .lead{font-size:clamp(1.25rem,2vw,1.55rem);font-weight:600;max-width:29ch}
+.hero .sub{font-size:1rem;line-height:1.9;max-width:49ch}
+.hero-meta{display:flex;flex-wrap:wrap;gap:9px;margin:23px 0 27px}
+.hero-meta span{font-size:.76rem;font-weight:600;letter-spacing:.025em;padding:7px 12px;border:1px solid var(--line);border-radius:999px;background:rgba(142,185,226,.055);color:var(--muted)}
+.hero-meta span:first-child{color:var(--accent);border-color:rgba(139,233,244,.28)}
+.hero-cube-wrap{margin-top:32px}
+.lab{border-radius:26px;padding:22px;box-shadow:0 32px 100px rgba(0,0,0,.42),0 0 0 1px rgba(139,233,244,.06),inset 0 1px rgba(255,255,255,.1)}
+.lab canvas{height:310px}
+section{position:relative}
+section h2{display:flex;align-items:center;gap:14px}
+section h2:after{content:"";display:block;height:1px;max-width:100px;flex:1;background:linear-gradient(90deg,var(--accent),transparent);opacity:.7}
+#about h2:before{content:"01 /";font:700 .78rem var(--body);letter-spacing:.14em;color:var(--accent)}
+#visit h2:before{content:"02 /";font:700 .78rem var(--body);letter-spacing:.14em;color:var(--accent)}
+#skills h2:before{content:"03 /";font:700 .78rem var(--body);letter-spacing:.14em;color:var(--accent)}
+#contact h2:before{content:"04 /";font:700 .78rem var(--body);letter-spacing:.14em;color:var(--accent)}
+.edu,.callout{box-shadow:0 18px 45px rgba(0,0,0,.12)}
+.cell figure,.cell .imgs figure{transition:transform .3s,border-color .3s,box-shadow .3s}
+.cell figure:hover,.cell .imgs figure:hover{transform:translateY(-5px);border-color:rgba(139,233,244,.42);box-shadow:0 22px 50px rgba(0,0,0,.24)}
+.mail{padding:24px;border:1px solid var(--line);border-radius:18px;background:linear-gradient(135deg,rgba(139,233,244,.07),rgba(143,117,219,.055));width:fit-content;max-width:100%}
+.mail a.addr{font-size:clamp(1rem,2.7vw,1.7rem)}
+footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+#scroll-progress{height:3px}
+@media(max-width:900px){
+ .hero{min-height:0;display:block}
+ .hero .wrap{grid-template-columns:1fr}
+ .hero-cube-wrap{margin-top:22px}
+}
+@media(max-width:600px){
+ .hero h1{font-size:clamp(3.6rem,16vw,5.8rem)}
+ .hero-meta span{font-size:.7rem}
+ .lab canvas{height:235px}
+ section h2{gap:9px}
+ section h2:after{max-width:48px}
+}
+
 </style>
 </head>
 <body>
@@ -316,6 +386,7 @@ footer{border-top:1px solid var(--line);font-size:.82rem}
       <span class="eyebrow">Computer Science · AI · Engineering</span>
       <h1>Raghunandan</h1>
       <p class="lead">First-year computer science student. I like maths that runs as code.</p>
+      <div class="hero-meta"><span>B.E. · Computer Science</span><span>Python &amp; AI</span><span>Building in public</span></div>
       <p class="sub">I study CSE at BGS College of Engineering and Technology. I build small AI tools in Python and write up what I learn, like my visit to a real tool room.</p>
       <div class="btns">
         <a class="btn primary" href="#visit">Read my industrial visit report</a>
