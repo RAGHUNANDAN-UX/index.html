@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Raghunandan – Computer Science student</title>
+<meta name="description" content="Portfolio of Raghunandan, a first-year computer science student. Includes the GTTC industrial visit report for Innovation and Design Thinking.">
+<!--
+  Keep this file and the images folder together when you upload.
+  Add your resume as Resume.pdf in the same folder.
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800;900&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#ECEDE8; --surface:#F8F8F5; --ink:#1C1E21; --muted:#575B62; --line:#CFD1CA;
+  --accent:#F2BE0A; --on-accent:#1C1E21; --link:#0B5A55; --panel:#1B1D20;
+  --display:'Archivo','Arial Black','Segoe UI',system-ui,sans-serif;
+  --body:'Public Sans','Segoe UI',system-ui,sans-serif;
+}
+:root[data-theme="dark"]{
+  --paper:#15171A; --surface:#1F2226; --ink:#ECEDEA; --muted:#A4A9B0; --line:#32363C;
+  --accent:#F2BE0A; --on-accent:#15171A; --link:#F5C938; --panel:#0E1012;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#15171A; --surface:#1F2226; --ink:#ECEDEA; --muted:#A4A9B0; --line:#32363C;
+    --accent:#F2BE0A; --on-accent:#15171A; --link:#F5C938; --panel:#0E1012;
+  }
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:1.0625rem;line-height:1.7}
+a{color:var(--link)}
+img{max-width:100%;height:auto;display:block}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:3px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 28px}
+
+/* top bar */
+.bar{position:sticky;top:0;z-index:20;background:var(--paper);border-bottom:2px solid var(--ink)}
+.bar .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:64px;flex-wrap:wrap}
+.brand{font-family:var(--display);font-weight:900;font-size:1.3rem;color:var(--ink);text-decoration:none;display:flex;align-items:center;gap:10px}
+.brand i{display:inline-block;width:14px;height:14px;background:var(--accent);border:2px solid var(--ink)}
+.bar nav{display:flex;flex-wrap:wrap;gap:4px 22px;align-items:center}
+.bar nav a{color:var(--muted);text-decoration:none;font-weight:500;padding:4px 0;border-bottom:3px solid transparent}
+.bar nav a:hover{color:var(--ink)}
+.bar nav a[aria-current="true"]{color:var(--ink);border-bottom-color:var(--accent)}
+.theme{font:inherit;font-size:.9rem;color:var(--ink);background:transparent;border:2px solid var(--ink);border-radius:0;padding:4px 12px;cursor:pointer}
+.theme:hover{background:var(--accent);color:var(--on-accent)}
+
+/* hero */
+.hero{padding:64px 0 72px;border-bottom:2px solid var(--ink)}
+.hero .wrap{display:grid;grid-template-columns:1fr 1.05fr;gap:48px;align-items:center}
+.hero h1{font-family:var(--display);font-weight:900;font-size:clamp(3rem,8vw,6rem);line-height:.92;letter-spacing:-.035em;margin:0 0 22px}
+.hero .lead{font-size:1.3rem;font-weight:500;max-width:24ch;margin:0 0 12px;line-height:1.35}
+.hero .sub{color:var(--muted);max-width:44ch;margin:0 0 28px}
+.btns{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-block;padding:12px 22px;font-weight:600;text-decoration:none;border:2px solid var(--ink);color:var(--ink);background:transparent}
+.btn.primary{background:var(--accent);color:var(--on-accent)}
+.btn:hover{transform:translate(-2px,-2px);box-shadow:3px 3px 0 var(--ink)}
+
+.lab{background:var(--panel);color:#ECEDEA;padding:18px 18px 14px;border:2px solid var(--ink)}
+.lab canvas{display:block;width:100%;height:290px}
+.controls{display:grid;grid-template-columns:1fr 1fr;gap:12px 24px;margin-top:12px}
+.controls label{display:flex;flex-direction:column;gap:4px;font-size:.93rem;color:#B7BCC4}
+.controls label b{color:#fff;font-weight:600}
+.controls input[type=range]{width:100%;accent-color:#F2BE0A}
+.status{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:8px 14px;margin-top:12px;font-size:.93rem}
+.status code{font-family:ui-monospace,Consolas,monospace;color:#fff}
+.verdict{font-weight:600}
+.verdict.ok{color:#F2BE0A} .verdict.warn{color:#FF9F43} .verdict.bad{color:#FF7B7B}
+.status button{font:inherit;font-size:.9rem;color:#F2BE0A;background:transparent;border:1px solid #F2BE0A;padding:4px 12px;cursor:pointer}
+.status button:hover{background:#F2BE0A;color:#15171A}
+.lab .hint{color:#9BA1AA;font-size:.9rem;margin:10px 0 0;max-width:none}
+
+/* sections */
+section{padding:80px 0;border-bottom:1px solid var(--line)}
+h2{font-family:var(--display);font-weight:900;font-size:clamp(2rem,4.5vw,3.1rem);line-height:1;letter-spacing:-.025em;margin:0 0 28px}
+h3{font-family:var(--display);font-weight:800;font-size:1.45rem;line-height:1.15;margin:44px 0 12px;letter-spacing:-.01em}
+h3:first-child{margin-top:0}
+h4{font-family:var(--display);font-weight:700;font-size:1.05rem;margin:22px 0 6px}
+p{margin:0 0 14px;max-width:68ch}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+
+.edu{border-left:6px solid var(--accent);padding:4px 0 4px 20px}
+.edu b{font-family:var(--display);font-size:1.2rem;display:block}
+.edu span{color:var(--muted)}
+
+/* report */
+.facts{display:grid;grid-template-columns:150px 1fr;gap:0;margin:0 0 8px;max-width:760px;border-top:2px solid var(--ink)}
+.facts dt,.facts dd{margin:0;padding:10px 0;border-bottom:1px solid var(--line)}
+.facts dt{color:var(--muted)}
+.facts dd{font-weight:500}
+.cell{display:grid;grid-template-columns:1.1fr 1fr;gap:12px 36px;align-items:start;padding:30px 0;border-top:1px solid var(--line)}
+.cell h4{margin-top:0;font-size:1.2rem}
+.cell .imgs{display:grid;gap:12px}
+figure{margin:0}
+figcaption{font-size:.9rem;color:var(--muted);margin-top:6px}
+figure img{border:2px solid var(--ink);background:var(--surface)}
+.callout{background:var(--surface);border-left:6px solid var(--accent);padding:18px 22px;margin:20px 0;max-width:72ch}
+.callout p:last-child{margin-bottom:0}
+.hmw{font-family:var(--display);font-weight:700;font-size:clamp(1.25rem,2.4vw,1.65rem);line-height:1.3;max-width:34ch;margin:8px 0 18px;letter-spacing:-.01em}
+.tags{display:flex;flex-wrap:wrap;gap:10px;list-style:none;padding:0;margin:8px 0 0}
+.tags li{border:2px solid var(--ink);padding:3px 14px;font-weight:500;background:var(--accent);color:var(--on-accent)}
+.tags li.off{background:transparent;color:var(--muted);border-color:var(--line);text-decoration:line-through}
+.stages{list-style:none;padding:0;margin:0;display:grid;gap:0;max-width:820px;counter-reset:s}
+.stages li{display:grid;grid-template-columns:56px 1fr;gap:0 18px;padding:18px 0;border-top:1px solid var(--line);counter-increment:s}
+.stages li::before{content:counter(s);font-family:var(--display);font-weight:900;font-size:2.2rem;line-height:1;color:var(--accent);-webkit-text-stroke:1.5px var(--ink)}
+.stages li p{margin:0;max-width:none}
+.stages li b{font-family:var(--display);font-size:1.1rem}
+.concepts{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:20px}
+
+/* skills */
+dl.skills{display:grid;grid-template-columns:220px 1fr;margin:0;max-width:760px;border-top:2px solid var(--ink)}
+dl.skills dt,dl.skills dd{margin:0;padding:12px 0;border-bottom:1px solid var(--line)}
+dl.skills dt{font-weight:600}
+dl.skills dd{color:var(--muted)}
+ul.courses{list-style:none;padding:0;margin:0;display:flex;flex-wrap:wrap;gap:10px}
+ul.courses li{border:2px solid var(--ink);padding:5px 16px;background:var(--surface);font-weight:500}
+
+/* contact */
+.mail{display:flex;flex-wrap:wrap;align-items:center;gap:12px 16px;margin-bottom:26px}
+.mail a.addr{font-family:var(--display);font-weight:800;font-size:clamp(1.2rem,3vw,2rem);color:var(--ink);text-decoration:none;border-bottom:5px solid var(--accent);word-break:break-all}
+.mail a.addr:hover{background:var(--accent);color:var(--on-accent)}
+.mail button{font:inherit;font-size:.9rem;color:var(--ink);background:transparent;border:2px solid var(--ink);padding:4px 12px;cursor:pointer}
+.mail button:hover{background:var(--accent);color:var(--on-accent)}
+footer{padding:28px 0 48px;color:var(--muted);font-size:.93rem}
+
+@media (max-width:900px){
+  .hero .wrap,.two,.cell,.concepts{grid-template-columns:1fr}
+  .hero{padding:40px 0 48px}
+  section{padding:56px 0}
+  .facts,dl.skills{grid-template-columns:1fr}
+  .facts dt,dl.skills dt{border-bottom:0;padding-bottom:0}
+  .facts dd,dl.skills dd{padding-top:2px}
+  .controls{grid-template-columns:1fr}
+  .bar .wrap{padding-top:8px;padding-bottom:8px}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn:hover{transform:none;box-shadow:none}}
+</style>
+</head>
+<body>
+
+<header class="bar">
+  <div class="wrap">
+    <a class="brand" href="#home"><i aria-hidden="true"></i>Raghunandan</a>
+    <nav aria-label="Sections" id="nav">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#visit">Industrial visit</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+      <button class="theme" id="theme" type="button" aria-label="Switch between light and dark theme">Theme</button>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<div class="hero" id="home">
+  <div class="wrap">
+    <div>
+      <h1>Raghunandan</h1>
+      <p class="lead">First-year computer science student. I like maths that runs as code.</p>
+      <p class="sub">I study CSE at BGS College of Engineering and Technology. I build small AI tools in Python and write up what I learn, like my visit to a real tool room.</p>
+      <div class="btns">
+        <a class="btn primary" href="#visit">Read my industrial visit report</a>
+        <a class="btn" href="#contact">Contact me</a>
+      </div>
+    </div>
+    <div class="lab">
+      <canvas id="gd" role="img" aria-label="A ball moving down a loss curve using gradient descent. The sliders below change the learning rate and the starting point."></canvas>
+      <div class="controls">
+        <label for="lr"><span>Learning rate η = <b id="lrv">0.80</b></span>
+          <input id="lr" type="range" min="0.05" max="2.4" step="0.05" value="0.8"></label>
+        <label for="x0"><span>Start position x = <b id="x0v">3.4</b></span>
+          <input id="x0" type="range" min="-3.8" max="3.8" step="0.1" value="3.4"></label>
+      </div>
+      <div class="status">
+        <code id="readout">Step 0</code>
+        <span class="verdict" id="verdict" aria-live="polite"></span>
+        <button type="button" id="again">Run again</button>
+      </div>
+      <p class="hint">Gradient descent rolls the ball downhill: <code>x ← x − η · f′(x)</code>. Move the sliders and watch.</p>
+    </div>
+  </div>
+</div>
+
+<section id="about">
+  <div class="wrap two">
+    <div>
+      <h2>About</h2>
+      <p>I am a first-year Computer Science and Engineering student at BGS College of Engineering and Technology, studying under VTU, in section CSE-B.</p>
+      <p>I enjoy seeing an idea work, not only reading it in a textbook. That is why I try to connect what I learn in maths class to code that I can run and test.</p>
+      <p>I am looking for internships, hackathons and teams where I can learn more about AI and build real things.</p>
+    </div>
+    <div>
+      <h3>Education</h3>
+      <div class="edu">
+        <b>B.E. in Computer Science and Engineering</b>
+        <span>BGS College of Engineering and Technology, Bengaluru. VTU, first year, 2025 scheme.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="visit">
+  <div class="wrap">
+    <h2>Industrial visit report: GTTC, Bengaluru</h2>
+    <p>This is my report for the Innovation and Design Thinking course. We visited a working tool room, watched real machines run, and used the design thinking steps on a real problem we saw there.</p>
+
+    <dl class="facts">
+      <dt>Place</dt><dd>Government Tool Room and Training Centre (GTTC), Bengaluru</dd>
+      <dt>Course</dt><dd>Innovation and Design Thinking</dd>
+      <dt>Date</dt><dd>22 September 2026</dd>
+      <dt>Student</dt><dd>V. Raghunandan, CSE-B</dd>
+      <dt>Department</dt><dd>Computer Science and Engineering, BGS College of Engineering and Technology</dd>
+    </dl>
+
+    <h3>1. Purpose of the visit</h3>
+    <p>The main aim was to see industrial manufacturing first-hand, and to check in a real, unscripted working place how the ideas of Innovation and Design Thinking from our classroom turn into real engineering practice.</p>
+    <p>We wanted to spot real challenges on an active shop floor, see how experienced technicians and engineers deal with them every day, and think about how user-centred, well-reasoned solutions could answer the friction points we noticed.</p>
+    <p>The visit also showed us the scale, discipline and precision that modern manufacturing demands. These are hard to understand from lectures, textbooks or lab exercises alone. They become clear when you stand beside the machines and the people who run, maintain and improve them every day.</p>
+
+    <h3>2. What I observed</h3>
+    <p>At GTTC we were guided through several different manufacturing and automation cells. Together they show how wide modern industrial practice is.</p>
+
+    <div class="cell">
+      <div>
+        <h4>Modular mechatronics and pneumatic automation training line</h4>
+        <p>The first cell was a training line made of five connected work-stations. Each station has pneumatic cylinders, sensors and its own electrical control panel. GTTC uses the line to simulate a real assembly process and to train operators in station sequencing, fault diagnosis and PLC-based control logic before they work on live production equipment.</p>
+      </div>
+      <figure>
+        <img src="images/training-line.jpg" alt="Five connected work-stations of the mechatronics and pneumatic training line" loading="lazy">
+        <figcaption>The five-station training line.</figcaption>
+      </figure>
+    </div>
+
+    <div class="cell">
+      <div>
+        <h4>Robotic welding bay</h4>
+        <p>Here we saw two six-axis industrial robot arms. One does spot welding and the other does plasma welding. Each is mounted above a table with interchangeable clamping fixtures. The fixtures hold the parts firmly and in the same position every time, in the exact orientation needed for a consistent, defect-free weld.</p>
+      </div>
+      <div class="imgs">
+        <figure>
+          <img src="images/spot-welding.jpg" alt="Robotic spot-welding station with clamping fixtures" loading="lazy">
+          <figcaption>Robotic spot-welding station.</figcaption>
+        </figure>
+        <figure>
+          <img src="images/plasma-welding.jpg" alt="Robotic plasma-welding station with clamping fixtures" loading="lazy">
+          <figcaption>Robotic plasma-welding station.</figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <div class="cell">
+      <div>
+        <h4>Dynascan optical profile projector</h4>
+        <p>This is a non-contact measuring instrument. It magnifies a part and projects its outline onto a large lit screen. We saw a threaded shaft on it. The profile, thread form and key dimensions can be checked against the engineering drawing without touching the part or risking damage to it.</p>
+      </div>
+      <figure>
+        <img src="images/profile-projector.jpg" alt="Optical profile projector showing the outline of a threaded shaft" loading="lazy">
+        <figcaption>The projector showing a threaded shaft.</figcaption>
+      </figure>
+    </div>
+
+    <div class="cell">
+      <div>
+        <h4>Large CNC gantry milling machine</h4>
+        <p>Finally we saw one of GTTC’s large CNC gantry milling machines cutting a big circular workpiece. Coolant flowed continuously over the cutting zone to control heat and wash away swarf. It gave us a real sense of the scale of equipment used for heavy tooling, die and mould production.</p>
+      </div>
+      <figure>
+        <img src="images/cnc-gantry.jpg" alt="Large CNC gantry milling machine cutting a circular workpiece with coolant" loading="lazy">
+        <figcaption>The CNC gantry mill at work.</figcaption>
+      </figure>
+    </div>
+
+    <h3>What struck us most</h3>
+    <p>Every station is very different in function, yet all of them are united by the same discipline of precision and repeatability.</p>
+    <div class="callout">
+      <p><b>Pneumatic line.</b> Automation is not only about large machines. It is also careful, sensor-driven logic practised at a smaller and safer scale before it is used on the shop floor.</p>
+      <p><b>Robotic welding.</b> Good weld quality depends as much on how rigid the clamping fixtures are as on the robot’s programmed path. Even a small misalignment while clamping gives a defective joint.</p>
+      <p><b>Optical projector.</b> Checking dimensions does not need to be invasive. A part’s shape can be verified using only projected light and magnified imaging, which protects delicate surfaces while giving very high measurement confidence.</p>
+      <p><b>CNC gantry mill.</b> Heat control and chip removal matter as much to final accuracy as the cutting settings. Quality is protected all the time, not only checked at the end.</p>
+    </div>
+
+    <h3>3. Empathize: who are the users?</h3>
+    <p>The main users we identified at the facility are skilled technicians, CNC machine operators, robotic-cell programmers, tool designers and quality-assurance engineers. Each has a different role, and their roles depend closely on each other so that daily production runs smoothly, safely and to the exact specification the client wants.</p>
+    <h4>Need or challenge we noticed</h4>
+    <p>From talking with the technical staff in the different cells, it was clear that job scheduling and tool changeovers are still managed mostly by hand and with paper job cards. This causes avoidable delays whenever a machine finishes a job earlier or later than planned.</p>
+    <p>Operators told us they must track work-in-progress parts across many machines by hand, often relying on their own experience and memory and not on a central digital system. This gets harder to manage reliably as the number of jobs on the floor grows.</p>
+    <p>Coordinating part documents and inspection reports between designers, machine operators and the quality team also takes a lot of time and effort. In our observation it is a repeated point of friction that lowers efficiency and slows down supervisors when an unplanned stoppage happens.</p>
+
+    <h3>4. Define: the problem we identified</h3>
+    <h4>How might we…?</h4>
+    <p class="hmw">How might we design and build an automated production-scheduling system that clearly cuts tool changeover time and improves machine use in every cell we saw, while keeping the very high precision standards the clients depend on?</p>
+    <p>This covers the pneumatic training line, the robotic welding stations and the CNC gantry mills.</p>
+    <h4>Why this problem is important</h4>
+    <p>Scheduling problems directly affect production cost and delivery time. Idle time between jobs lowers the factory’s output and raises the cost of each unit made.</p>
+    <p>A smarter, data-driven way of scheduling would let GTTC accept more client work and deliver precision parts, such as welded assemblies and machined tooling, much faster. That makes it more competitive against other manufacturing partners.</p>
+    <p>For us as engineering students, it also shows why improving workflow is such an important idea for a future career in manufacturing and industrial systems design. Even the most advanced machine gives little value if it sits idle between jobs.</p>
+
+    <h3>5. Ideate: our idea</h3>
+    <h4>Our proposed solution</h4>
+    <p>We propose a real-time production scheduling dashboard. It connects directly to the CNC machine controllers, the robotic welding cells and the pneumatic training line’s PLC network. It keeps track of job status, tool and fixture changes, and how much each machine is used across the whole shop floor.</p>
+    <p>Live data from each machine and robotic cell is collected through an IoT interface and sent to a cloud or local server. The server sequences upcoming jobs by priority and deadline, and warns about a coming tool change or fixture swap before it can cause an unplanned stop.</p>
+    <p>Technicians and supervisors see all this on a central dashboard and get mobile alerts when a tool change is due, a weld fixture must be reset, or a new job is assigned. Changeovers can then be planned well ahead and not discovered in the middle of a shift, when they cause the most disruption.</p>
+    <h4>Key benefit</h4>
+    <p>Replacing manual, memory-based tracking with a live, automatic schedule should greatly reduce idle time between jobs. It gives technicians early warning of tool and fixture changes, and makes it much easier for supervisors to watch, judge and keep improving how well machines and robotic cells are used.</p>
+    <ul class="tags" aria-label="Benefits we ticked">
+      <li>Saves time</li><li>Reduces cost</li><li>Improves usability</li>
+      <li class="off">Improves safety</li><li class="off">Reduces waste</li>
+    </ul>
+
+    <h3>Prototype idea 1: desktop dashboard</h3>
+    <p>Our first direction is a browser-based dashboard that a supervisor keeps open all through the shift. Four summary counters across the top give a quick picture of the day’s work: total jobs scheduled, how many are in progress, how many are done and how many are still pending. A supervisor does not need to dig through paperwork to see how the shift is going.</p>
+    <p>Below this, a live job table lists every machine with its current part number, the tool it is running, a colour-coded status such as “In Progress” or “Tool Change”, and an estimated finish time. One look shows where attention is needed. A panel shows machine utilisation as a simple percentage split between running, idle and maintenance time. A neighbouring alert box shows the next tool change that is due and counts down the minutes, so the technician can prepare in advance.</p>
+    <p>Underneath, a simple system-flow diagram shows how data travels from each CNC machine and robotic cell, through an IoT interface, into a cloud or local server that processes and optimises the schedule, and then out to the dashboard and a companion mobile app. A short list of key features and benefits explains in plain language why automatic scheduling and real-time monitoring saves time, cuts cost and makes the shop floor easier to manage.</p>
+    <figure>
+      <img src="images/concept-dashboard.jpg" alt="Concept sketch of the real-time production scheduling dashboard for CNC machines, with counters, job table, utilisation, alert and system flow" loading="lazy">
+      <figcaption>Concept 1: desktop view of the real-time production scheduling dashboard for CNC machines and robotic welding cells.</figcaption>
+    </figure>
+
+    <h3>Prototype idea 2: 3-D digital twin</h3>
+    <p>As a second direction, we imagined the same live data shown not as a flat table but as a 3-D digital-twin view on a large monitor fixed on the shop floor, where anyone walking past can see it from a distance. Each CNC machine, the wire-EDM unit, the robotic welding cells and the CMM inspection station is drawn as a simple colour-coded 3-D block. The colour shows the status at once (running, idle, tool change or maintenance) without anyone reading a word.</p>
+    <p>Key numbers such as machine utilisation, predicted downtime, the time left until the next tool change and the number of active jobs float beside the models as small cards, joined by thin guide lines to the machine they describe. A supervisor walking through can see from across the room which station needs attention next.</p>
+    <p>We felt this idea would be especially useful in busy shifts and for new supervisors who do not yet know every machine’s position and job code. A simple colour-coded 3-D layout is far faster to read under pressure than scrolling through rows of a table.</p>
+    <figure>
+      <img src="images/concept-digital-twin.jpg" alt="Concept sketch of a 3-D digital twin monitor showing coloured machine blocks with utilisation, predicted downtime, next tool change and active jobs" loading="lazy">
+      <figcaption>Concept 2: 3-D digital-twin live monitoring display, shown on a shop-floor monitor.</figcaption>
+    </figure>
+
+    <h3>6. Design thinking learning</h3>
+    <ol class="stages">
+      <li><p><b>Empathize.</b> We listened patiently to technicians and operators in every cell, to understand their daily manual workflows, the time pressure in a shift, and the coordination problems between the stages of production, from first job assignment to final inspection.</p></li>
+      <li><p><b>Define.</b> After thinking over everything we saw, we recognised that scheduling inefficiency is the real core problem behind much of the friction on the shop floor. It is not something to accept as a normal part of how factories have always worked.</p></li>
+      <li><p><b>Ideate.</b> We weighed several scheduling approaches (priority-based, time-based and efficiency-based), discussed the trade-offs of each, and settled on a combined, data-driven solution that suits the mix of CNC machining, robotic welding and pneumatic-line work we saw.</p></li>
+      <li><p><b>Prototype.</b> We sketched the dashboard concept, both the table view and the 3-D digital-twin view, in enough detail for real operators to react to. The aim is to get useful feedback before spending significant time or resources on full development.</p></li>
+      <li><p><b>Test.</b> The plan is to measure the improvement in production time, machine utilisation and cost savings under real factory conditions over a long trial, so the real-world result can be judged honestly before any wider roll-out.</p></li>
+    </ol>
+
+    <h3>7. My key takeaway</h3>
+    <h4>One important thing I learned from the visit</h4>
+    <p>Lasting success in precision manufacturing comes from a culture of continuous improvement, not from one dramatic breakthrough. Design Thinking proves its value in a factory because it makes you understand the real user and not make convenient assumptions about the problem.</p>
+    <p>At GTTC, in every cell we visited, the strongest and most workable solutions came from listening carefully to experienced technicians, who already know exactly where the real bottlenecks are. This reinforced my view that technology alone does not solve problems. Technology that is deliberately designed around real user empathy does.</p>
+    <h4>How I will use this in future projects</h4>
+    <p>I will apply user-centred design thinking from the very start of any project. Before writing a single line of code or drawing a first design, I will take time to understand who will use the solution and what problems they really face in their daily work, the same way we questioned the GTTC technicians about their scheduling and documentation difficulties.</p>
+    <p>I plan to prototype early, get feedback from real users instead of assuming I know their needs, and improve step by step. The empathize, define, ideate, prototype and test cycle, which we studied in theory and then saw in practice on this visit, will be a core part of how I approach my own design and engineering work.</p>
+
+    <h3>8. Conclusion</h3>
+    <p>The visit to GTTC showed clearly and practically that real innovation begins with carefully watching real problems on the ground, understanding the people affected, framing the right problem statement, and only then working step by step towards a practical and sustainable solution.</p>
+    <p>Across the mechatronics training line, the robotic spot- and plasma-welding cells, the optical measuring station and the large CNC gantry mill, we saw again and again how precision, repeatability and continuous quality checks support every successful process. Overall, the visit connected the theory from our Innovation and Design Thinking course with real engineering practice, and left us with a much deeper respect for the discipline, patience and precision that modern manufacturing demands of everyone involved.</p>
+    <p><b>V. Raghunandan</b>, 22 September 2026</p>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <h2>Skills</h2>
+    <dl class="skills">
+      <dt>Language</dt><dd>Python</dd>
+      <dt>Data and machine learning</dt><dd>NumPy, pandas, scikit-learn, Matplotlib</dd>
+      <dt>Building apps</dt><dd>Streamlit, Git and GitHub</dd>
+      <dt>Maths</dt><dd>Calculus, linear algebra, gradient descent, probability basics</dd>
+      <dt>Ways of working</dt><dd>Design thinking: empathize, define, ideate, prototype, test</dd>
+    </dl>
+    <h3>Coursework this year</h3>
+    <ul class="courses">
+      <li>Python Programming</li>
+      <li>Calculus and Linear Algebra</li>
+      <li>Applied Chemistry for Smart Systems</li>
+      <li>Introduction to AI</li>
+      <li>Innovation and Design Thinking</li>
+    </ul>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <h2>Contact</h2>
+    <p>The best way to reach me is email.</p>
+    <div class="mail">
+      <a class="addr" href="mailto:raghunandanv611@gmail.com">raghunandanv611@gmail.com</a>
+      <button type="button" id="copy">Copy email</button>
+      <span id="copied" aria-live="polite" style="color:var(--muted);font-size:.92rem"></span>
+    </div>
+    <div class="btns">
+      <a class="btn primary" href="https://www.linkedin.com/in/raghunandan-undefined-861115448">LinkedIn</a>
+      <a class="btn" href="https://github.com/RAGHUNANDAN-UX">GitHub</a>
+      <a class="btn" href="Resume.pdf">Download resume</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">© 2026 Raghunandan</div>
+</footer>
+
+<script>
+/* theme toggle */
+(function(){
+  var root = document.documentElement, key = 'theme';
+  try { var saved = localStorage.getItem(key); if (saved) root.setAttribute('data-theme', saved); } catch(e){}
+  document.getElementById('theme').addEventListener('click', function(){
+    var cur = root.getAttribute('data-theme');
+    if (!cur) cur = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    var next = cur === 'dark' ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    try { localStorage.setItem(key, next); } catch(e){}
+  });
+})();
+
+/* active section in the top menu */
+(function(){
+  var links = document.querySelectorAll('#nav a');
+  var map = {};
+  links.forEach(function(a){ map[a.getAttribute('href').slice(1)] = a; });
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if (e.isIntersecting && map[e.target.id]){
+        links.forEach(function(a){ a.removeAttribute('aria-current'); });
+        map[e.target.id].setAttribute('aria-current','true');
+      }
+    });
+  }, {rootMargin:'-30% 0px -60% 0px'});
+  Object.keys(map).forEach(function(id){ var el = document.getElementById(id); if (el) obs.observe(el); });
+  map.home.setAttribute('aria-current','true');
+})();
+
+/* copy email */
+(function(){
+  var btn = document.getElementById('copy'), msg = document.getElementById('copied');
+  btn.addEventListener('click', function(){
+    function done(t){ msg.textContent = t; setTimeout(function(){ msg.textContent = ''; }, 2500); }
+    try {
+      navigator.clipboard.writeText('raghunandanv611@gmail.com').then(function(){ done('Copied'); }, function(){ done('Copy failed. Select the address and copy it.'); });
+    } catch(e){ done('Copy failed. Select the address and copy it.'); }
+  });
+})();
+
+/* gradient descent playground */
+(function(){
+  var canvas = document.getElementById('gd'), ctx = canvas.getContext('2d');
+  var lrIn = document.getElementById('lr'), x0In = document.getElementById('x0');
+  var lrOut = document.getElementById('lrv'), x0Out = document.getElementById('x0v');
+  var readout = document.getElementById('readout'), verdict = document.getElementById('verdict');
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function f(x){ return 0.2*x*x + 0.5*(1-Math.cos(x)); }
+  function df(x){ return 0.4*x + 0.5*Math.sin(x); }
+
+  var XMIN = -4.5, XMAX = 4.5, YMAX = 5.2, STEPS = 14;
+  var PAD = {l:14, r:14, t:14, b:28};
+  var W = 0, H = 0, path = [], t = 0, last = null, raf = 0;
+
+  function clampX(x){ return Math.max(XMIN, Math.min(XMAX, x)); }
+  function px(x){ return PAD.l + (clampX(x)-XMIN)/(XMAX-XMIN)*(W-PAD.l-PAD.r); }
+  function py(y){ return H-PAD.b - Math.min(y, YMAX)/YMAX*(H-PAD.t-PAD.b); }
+
+  function build(){
+    var lr = parseFloat(lrIn.value), x = parseFloat(x0In.value);
+    path = [x];
+    for (var i = 0; i < STEPS; i++){
+      x = x - lr*df(x);
+      path.push(x);
+      if (Math.abs(x) > 40) break;
+    }
+    lrOut.textContent = lr.toFixed(2);
+    x0Out.textContent = parseFloat(x0In.value).toFixed(1);
+  }
+
+  function judge(){
+    var end = path[path.length-1], lr = parseFloat(lrIn.value), cls, text;
+    if (Math.abs(end) > XMAX) { cls = 'bad'; text = 'Diverges: the steps are too big'; }
+    else if (Math.abs(end) < 0.05) { cls = 'ok'; text = 'Converges to the minimum'; }
+    else if (lr > 1.2) { cls = 'warn'; text = 'Overshoots and bounces around'; }
+    else { cls = 'warn'; text = 'Still moving: needs more steps'; }
+    verdict.className = 'verdict ' + cls; verdict.textContent = text;
+  }
+
+  function resize(){
+    var r = canvas.getBoundingClientRect(), dpr = window.devicePixelRatio || 1;
+    W = r.width; H = r.height;
+    canvas.width = Math.round(W*dpr); canvas.height = Math.round(H*dpr);
+    ctx.setTransform(dpr,0,0,dpr,0,0);
+    draw();
+  }
+
+  function pos(){
+    var i = Math.min(Math.floor(t), path.length-1), j = Math.min(i+1, path.length-1);
+    var k = t - i, e = k*k*(3-2*k);
+    return path[i] + (path[j]-path[i])*e;
+  }
+
+  function draw(){
+    ctx.clearRect(0,0,W,H);
+    ctx.strokeStyle = '#3A3F46'; ctx.lineWidth = 1;
+    ctx.beginPath(); ctx.moveTo(PAD.l, py(0)); ctx.lineTo(W-PAD.r, py(0)); ctx.stroke();
+
+    ctx.strokeStyle = '#ECEDEA'; ctx.lineWidth = 2.5; ctx.beginPath();
+    for (var x = XMIN; x <= XMAX + 0.001; x += 0.05){
+      var X = px(x), Y = py(f(x));
+      if (x === XMIN) ctx.moveTo(X,Y); else ctx.lineTo(X,Y);
+    }
+    ctx.stroke();
+
+    ctx.fillStyle = '#9BA1AA'; ctx.font = '13px system-ui, sans-serif'; ctx.textAlign = 'center';
+    ctx.fillText('minimum', px(0), py(0)+19);
+
+    var done = Math.min(Math.floor(t), path.length-1);
+    ctx.globalAlpha = 0.55; ctx.fillStyle = '#FF9F43';
+    for (var n = 0; n <= done; n++){
+      ctx.beginPath(); ctx.arc(px(path[n]), py(f(clampX(path[n]))), 4, 0, 6.2832); ctx.fill();
+    }
+    ctx.globalAlpha = 1;
+
+    var bx = pos();
+    ctx.fillStyle = '#F2BE0A';
+    ctx.beginPath(); ctx.arc(px(bx), py(f(clampX(bx))), 9, 0, 6.2832); ctx.fill();
+
+    var step = Math.min(Math.floor(t + 0.001), path.length-1), xs = path[step];
+    var big = Math.abs(xs) > 99;
+    readout.textContent = 'Step ' + step + '  x = ' + (big ? 'huge' : xs.toFixed(3)) + '  loss = ' + (big ? 'huge' : f(xs).toFixed(3));
+  }
+
+  function frame(ts){
+    if (last === null) last = ts;
+    var dt = (ts - last)/1000; last = ts;
+    t += dt/0.45;
+    if (t >= path.length-1){ t = path.length-1; draw(); return; }
+    draw();
+    raf = requestAnimationFrame(frame);
+  }
+
+  function run(){
+    build(); judge();
+    cancelAnimationFrame(raf);
+    if (reduce){ t = path.length-1; draw(); return; }
+    t = 0; last = null;
+    raf = requestAnimationFrame(frame);
+  }
+
+  lrIn.addEventListener('input', run);
+  x0In.addEventListener('input', run);
+  document.getElementById('again').addEventListener('click', run);
+  window.addEventListener('resize', resize);
+  resize();
+  run();
+})();
+</script>
+</body>
+</html>
