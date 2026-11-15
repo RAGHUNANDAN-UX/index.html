@@ -23,11 +23,12 @@ jobs:
           python-version: "3.12"
       - name: Install image tools
         run: python -m pip install Pillow
-      - name: Upscale and refine portfolio images
+      - name: Upscale and refine valid portfolio images
         run: |
           python - <<'PY'
           from pathlib import Path
-          from PIL import Image, ImageEnhance, ImageFilter
+          from PIL import Image, ImageEnhance, ImageFilter, UnidentifiedImageError
+
           folder = Path("images")
           names = [
               "cnc-gantry.jpg", "plasma-welding.jpg",
@@ -35,22 +36,34 @@ jobs:
               "training-line.jpg", "concept-dashboard.jpg",
               "concept-digital-twin.jpg"
           ]
+          processed = 0
+          skipped = []
           for name in names:
               src = folder / name
               if not src.exists():
                   continue
-              with Image.open(src) as im:
-                  im = im.convert("RGB")
-                  w, h = im.size
-                  target_w = min(max(w * 2, 1600), 2800)
-                  target_h = round(h * target_w / w)
-                  im = im.resize((target_w, target_h), Image.Resampling.LANCZOS)
-                  im = ImageEnhance.Contrast(im).enhance(1.035)
-                  im = ImageEnhance.Color(im).enhance(1.025)
-                  im = im.filter(ImageFilter.UnsharpMask(radius=1.35, percent=125, threshold=3))
-                  out = folder / (src.stem + "-hd.jpg")
-                  im.save(out, "JPEG", quality=94, optimize=True, progressive=True, subsampling=0)
-                  print(f"{name}: {w}x{h} -> {target_w}x{target_h}")
+              try:
+                  with Image.open(src) as original:
+                      original.load()
+                      im = original.convert("RGB")
+                      w, h = im.size
+                      target_w = min(max(w * 2, 1600), 2800)
+                      target_h = round(h * target_w / w)
+                      im = im.resize((target_w, target_h), Image.Resampling.LANCZOS)
+                      im = ImageEnhance.Contrast(im).enhance(1.035)
+                      im = ImageEnhance.Color(im).enhance(1.025)
+                      im = im.filter(ImageFilter.UnsharpMask(radius=1.35, percent=125, threshold=3))
+                      out = folder / (src.stem + "-hd.jpg")
+                      im.save(out, "JPEG", quality=94, optimize=True, progressive=True, subsampling=0)
+                      print(f"Enhanced {name}: {w}x{h} -> {target_w}x{target_h}")
+                      processed += 1
+              except (UnidentifiedImageError, OSError) as exc:
+                  skipped.append(f"{name}: {exc}")
+          print(f"Successfully enhanced {processed} image(s).")
+          for item in skipped:
+              print(f"SKIPPED INVALID IMAGE: {item}")
+          if processed == 0:
+              raise SystemExit("No valid images were available to enhance.")
           PY
       - name: Commit enhanced images
         run: |
