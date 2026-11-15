@@ -1,0 +1,123 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1120">
+  <title>Real-time production scheduling dashboard concept</title>
+  <desc>A crisp dashboard concept showing CNC job status, machine utilisation, upcoming tool changes, system flow, technician alerts, features and benefits.</desc>
+  <rect width="1600" height="1120" fill="#f3f5fa"/>
+  <text x="54" y="46" fill="#376a9c" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700" letter-spacing="2">CONCEPT SKETCH · PROTOTYPE IDEA</text>
+  <text x="54" y="88" fill="#182235" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="700">Real-Time Production Scheduling Dashboard for CNC Machines</text>
+  <text x="54" y="119" fill="#5e6876" font-family="Arial, Helvetica, sans-serif" font-size="17">An intelligent system integrates with CNC controllers to schedule tool changes, optimise utilisation and reduce downtime.</text>
+
+  <rect x="52" y="148" width="1496" height="425" rx="18" fill="#fff" stroke="#d7dee8" stroke-width="2"/>
+  <circle cx="75" cy="177" r="6" fill="#3972b7"/>
+  <text x="91" y="183" fill="#334252" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700" letter-spacing="1">MAIN DASHBOARD — DESKTOP VIEW</text>
+  <rect x="70" y="198" width="1460" height="34" rx="7" fill="#101a2d"/>
+  <circle cx="89" cy="215" r="5" fill="#fff"/>
+  <text x="104" y="221" fill="#fff" font-family="Arial, Helvetica, sans-serif" font-size="15">GTTC Production Dashboard</text>
+  <circle cx="1478" cy="215" r="5" fill="#fff"/>
+  <text x="1493" y="221" fill="#fff" font-family="Arial, Helvetica, sans-serif" font-size="14" text-anchor="end">System Online</text>
+
+  <g font-family="Arial, Helvetica, sans-serif">
+    <rect x="70" y="244" width="354" height="64" rx="9" fill="#fbfcfe" stroke="#d9e0e9"/>
+    <rect x="434" y="244" width="354" height="64" rx="9" fill="#fbfcfe" stroke="#d9e0e9"/>
+    <rect x="798" y="244" width="354" height="64" rx="9" fill="#fbfcfe" stroke="#d9e0e9"/>
+    <rect x="1162" y="244" width="368" height="64" rx="9" fill="#fbfcfe" stroke="#d9e0e9"/>
+    <text x="88" y="272" fill="#3972b7" font-size="25" font-weight="700">12</text>
+    <text x="88" y="293" fill="#6b7582" font-size="12" letter-spacing="1">TOTAL JOBS</text>
+    <text x="452" y="272" fill="#182235" font-size="25" font-weight="700">5</text>
+    <text x="452" y="293" fill="#6b7582" font-size="12" letter-spacing="1">IN PROGRESS</text>
+    <text x="816" y="272" fill="#349a63" font-size="25" font-weight="700">6</text>
+    <text x="816" y="293" fill="#6b7582" font-size="12" letter-spacing="1">COMPLETED</text>
+    <text x="1180" y="272" fill="#bd8730" font-size="25" font-weight="700">1</text>
+    <text x="1180" y="293" fill="#6b7582" font-size="12" letter-spacing="1">PENDING</text>
+  </g>
+
+  <g font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#596675">
+    <text x="88" y="333" font-weight="700">Machine</text>
+    <text x="385" y="333" font-weight="700">Job</text>
+    <text x="685" y="333" font-weight="700">Tool</text>
+    <text x="875" y="333" font-weight="700">Status</text>
+    <text x="1390" y="333" font-weight="700">ETA</text>
+  </g>
+  <g stroke="#e1e6ed">
+    <path d="M84 343H1515M84 378H1515M84 413H1515M84 448H1515M84 483H1515"/>
+  </g>
+  <g font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#293545">
+    <text x="88" y="367">CNC-01</text><text x="385" y="367">Part A-102</text><text x="685" y="367">T03</text><text x="1390" y="367">2h 15m</text>
+    <text x="88" y="402">CNC-02</text><text x="385" y="402">Part B-204</text><text x="685" y="402">T05</text><text x="1390" y="402">3h 40m</text>
+    <text x="88" y="437">CNC-03</text><text x="385" y="437">Part C-317</text><text x="685" y="437">T08</text><text x="1390" y="437">5m</text>
+    <text x="88" y="472">CNC-04</text><text x="385" y="472">Part D-421</text><text x="685" y="472">T02</text><text x="1390" y="472">1h 20m</text>
+  </g>
+  <g font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="700">
+    <rect x="858" y="350" width="91" height="22" rx="11" fill="#e1efff"/><text x="903" y="365" fill="#3269a2" text-anchor="middle">In Progress</text>
+    <rect x="858" y="385" width="91" height="22" rx="11" fill="#e1efff"/><text x="903" y="400" fill="#3269a2" text-anchor="middle">In Progress</text>
+    <rect x="858" y="420" width="90" height="22" rx="11" fill="#fff0dd"/><text x="903" y="435" fill="#a96c25" text-anchor="middle">Tool Change</text>
+    <rect x="858" y="455" width="68" height="22" rx="11" fill="#edf0f4"/><text x="892" y="470" fill="#596675" text-anchor="middle">Waiting</text>
+  </g>
+
+  <text x="88" y="515" fill="#45515f" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700">MACHINE UTILISATION</text>
+  <circle cx="126" cy="544" r="22" fill="#fff" stroke="#dfe5ec"/>
+  <text x="126" y="550" fill="#263546" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="700" text-anchor="middle">78%</text>
+  <circle cx="164" cy="533" r="4" fill="#45ad74"/><text x="176" y="538" fill="#687381" font-family="Arial, Helvetica, sans-serif" font-size="12">Running — 78%</text>
+  <circle cx="164" cy="548" r="4" fill="#dca53b"/><text x="176" y="553" fill="#687381" font-family="Arial, Helvetica, sans-serif" font-size="12">Idle — 12%</text>
+  <circle cx="164" cy="563" r="4" fill="#c6ced8"/><text x="176" y="568" fill="#687381" font-family="Arial, Helvetica, sans-serif" font-size="12">Maintenance — 10%</text>
+  <text x="660" y="515" fill="#45515f" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700">UPCOMING TOOL CHANGE</text>
+  <rect x="660" y="524" width="850" height="39" rx="9" fill="#fff7ed" stroke="#efcfaa"/>
+  <text x="676" y="541" fill="#8f5729" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700">!  CNC-03 · Part C-317</text>
+  <text x="676" y="557" fill="#806b58" font-family="Arial, Helvetica, sans-serif" font-size="12">Current tool T08 → Next tool T12 — notify technician in 5 min</text>
+
+  <rect x="52" y="594" width="1496" height="178" rx="18" fill="#fff" stroke="#d7dee8" stroke-width="2"/>
+  <circle cx="75" cy="622" r="6" fill="#8253bd"/>
+  <text x="91" y="628" fill="#334252" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700" letter-spacing="1">SYSTEM FLOW</text>
+  <g font-family="Arial, Helvetica, sans-serif" text-anchor="middle">
+    <rect x="70" y="647" width="330" height="64" rx="10" fill="#eef6ff" stroke="#b8cce0"/>
+    <text x="235" y="673" fill="#36506b" font-size="16" font-weight="700">CNC Machine 1</text><text x="235" y="695" fill="#68798b" font-size="13">Machine data + status</text>
+    <text x="413" y="686" fill="#8893a1" font-size="25">→</text>
+    <rect x="430" y="647" width="330" height="64" rx="10" fill="#f1f4f8" stroke="#d7dee8"/>
+    <text x="595" y="673" fill="#3f4a58" font-size="16" font-weight="700">IoT / Machine Interface</text><text x="595" y="695" fill="#68798b" font-size="13">Collects real-time data</text>
+    <text x="773" y="686" fill="#8893a1" font-size="25">→</text>
+    <rect x="790" y="647" width="330" height="64" rx="10" fill="#111a2b" stroke="#111a2b"/>
+    <text x="955" y="673" fill="#fff" font-size="16" font-weight="700">Cloud / Local Server</text><text x="955" y="695" fill="#b9c3d0" font-size="13">Processes + optimises schedule</text>
+    <text x="1133" y="686" fill="#8893a1" font-size="25">→</text>
+    <rect x="1150" y="647" width="380" height="64" rx="10" fill="#eef6ff" stroke="#b8cce0"/>
+    <text x="1340" y="673" fill="#36506b" font-size="16" font-weight="700">Dashboard + Mobile App</text><text x="1340" y="695" fill="#68798b" font-size="13">Web, desktop + notifications</text>
+  </g>
+  <text x="70" y="744" fill="#76818e" font-family="Arial, Helvetica, sans-serif" font-size="13">CNC Machines 2 &amp; 3 feed the same interface in parallel, giving one unified schedule across the shop floor.</text>
+
+  <rect x="52" y="793" width="1496" height="290" rx="18" fill="#fff" stroke="#d7dee8" stroke-width="2"/>
+  <circle cx="75" cy="823" r="6" fill="#28a6bd"/>
+  <text x="91" y="829" fill="#334252" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700" letter-spacing="1">TECHNICIAN ALERT</text>
+  <rect x="70" y="848" width="190" height="207" rx="16" fill="#111a2b"/>
+  <text x="91" y="881" fill="#fff" font-family="Arial, Helvetica, sans-serif" font-size="25" font-weight="700">10:24</text>
+  <text x="91" y="903" fill="#aeb9c8" font-family="Arial, Helvetica, sans-serif" font-size="12">Tue, 22 Sep</text>
+  <rect x="84" y="916" width="162" height="60" rx="8" fill="#273348"/>
+  <rect x="84" y="916" width="4" height="60" rx="2" fill="#f0aa3c"/>
+  <text x="98" y="936" fill="#fff" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="700">Tool Change Alert</text>
+  <text x="98" y="953" fill="#bdc7d4" font-family="Arial, Helvetica, sans-serif" font-size="10">CNC-03 · Part C-317</text>
+  <text x="98" y="968" fill="#bdc7d4" font-family="Arial, Helvetica, sans-serif" font-size="10">Prepare Tool T12 · ETA 5 min</text>
+  <rect x="84" y="985" width="162" height="54" rx="8" fill="#273348"/>
+  <rect x="84" y="985" width="4" height="54" rx="2" fill="#4388dc"/>
+  <text x="98" y="1005" fill="#fff" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="700">New Job Assigned</text>
+  <text x="98" y="1022" fill="#bdc7d4" font-family="Arial, Helvetica, sans-serif" font-size="10">CNC-02 · Part B-204</text>
+  <text x="98" y="1036" fill="#bdc7d4" font-family="Arial, Helvetica, sans-serif" font-size="10">Starts in 10 min</text>
+
+  <circle cx="300" cy="823" r="6" fill="#38a66a"/>
+  <text x="316" y="829" fill="#334252" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700" letter-spacing="1">KEY FEATURES</text>
+  <g fill="#364454" font-family="Arial, Helvetica, sans-serif" font-size="15">
+    <circle cx="304" cy="867" r="4" fill="#38a66a"/><text x="320" y="872">Automatic tool-change scheduling</text>
+    <circle cx="304" cy="906" r="4" fill="#38a66a"/><text x="320" y="911">Optimised job sequencing by deadline and availability</text>
+    <circle cx="304" cy="945" r="4" fill="#38a66a"/><text x="320" y="950">Real-time machine monitoring</text>
+    <circle cx="304" cy="984" r="4" fill="#38a66a"/><text x="320" y="989">Mobile alerts for technicians</text>
+    <circle cx="304" cy="1023" r="4" fill="#38a66a"/><text x="320" y="1028">Integration with CAD/CAM and machine controllers</text>
+  </g>
+
+  <circle cx="940" cy="823" r="6" fill="#d9a334"/>
+  <text x="956" y="829" fill="#334252" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700" letter-spacing="1">KEY BENEFITS</text>
+  <g font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#364454">
+    <circle cx="950" cy="867" r="9" fill="#e4f6ed"/><text x="950" y="871" fill="#319562" font-size="12" font-weight="700" text-anchor="middle">✓</text><text x="969" y="872">Reduces cost — less downtime, better utilisation</text>
+    <circle cx="950" cy="902" r="9" fill="#e4f6ed"/><text x="950" y="906" fill="#319562" font-size="12" font-weight="700" text-anchor="middle">✓</text><text x="969" y="907">Saves time — faster job turnaround</text>
+    <circle cx="950" cy="937" r="9" fill="#e4f6ed"/><text x="950" y="941" fill="#319562" font-size="12" font-weight="700" text-anchor="middle">✓</text><text x="969" y="942">Improves usability — easy to manage and track</text>
+  </g>
+  <rect x="940" y="964" width="572" height="48" rx="10" fill="#111a2b"/>
+  <text x="1226" y="994" fill="#fff" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700" text-anchor="middle">Smarter scheduling today, more efficient manufacturing tomorrow.</text>
+  <text x="70" y="1105" fill="#8b96a3" font-family="Arial, Helvetica, sans-serif" font-size="12">GTTC Industrial Visit — Innovation &amp; Design Thinking</text>
+  <text x="1530" y="1105" fill="#8b96a3" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="end">Concept Sketch / Prototype Idea</text>
+</svg>

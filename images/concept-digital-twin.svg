@@ -1,0 +1,112 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 1000">
+  <title>Digital twin live shop-floor monitor concept</title>
+  <desc>A vector monitor mock-up with live manufacturing metrics and four color-coded machine models.</desc>
+  <defs>
+    <linearGradient id="screen" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0d1a2e"/>
+      <stop offset="1" stop-color="#152a46"/>
+    </linearGradient>
+    <linearGradient id="frame" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#596070"/>
+      <stop offset=".18" stop-color="#303747"/>
+      <stop offset="1" stop-color="#1b202b"/>
+    </linearGradient>
+    <linearGradient id="cyanFace" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#2be2ee"/><stop offset="1" stop-color="#12a8c0"/>
+    </linearGradient>
+    <linearGradient id="cyanSide" x1="0" y1="0" x2="1" y2="0">
+      <stop stop-color="#117f99"/><stop offset="1" stop-color="#0d657f"/>
+    </linearGradient>
+    <linearGradient id="goldFace" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#ffd440"/><stop offset="1" stop-color="#f2a900"/>
+    </linearGradient>
+    <linearGradient id="purpleFace" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#c59aff"/><stop offset="1" stop-color="#8f62d0"/>
+    </linearGradient>
+    <linearGradient id="greenFace" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#42e0ad"/><stop offset="1" stop-color="#16ad83"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="10"/>
+      <feOffset dy="8"/>
+      <feComponentTransfer><feFuncA type="linear" slope=".28"/></feComponentTransfer>
+      <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <rect width="1400" height="1000" fill="#fff"/>
+  <ellipse cx="700" cy="939" rx="510" ry="25" fill="#d9dce2"/>
+  <g filter="url(#shadow)">
+    <rect x="22" y="18" width="1356" height="802" rx="31" fill="url(#frame)" stroke="#141925" stroke-width="4"/>
+    <rect x="57" y="52" width="1286" height="733" rx="12" fill="url(#screen)" stroke="#080e19" stroke-width="4"/>
+  </g>
+  <circle cx="700" cy="34" r="4" fill="#111722" stroke="#737986" stroke-width="2"/>
+
+  <rect x="64" y="60" width="1272" height="78" rx="8" fill="#091525"/>
+  <circle cx="91" cy="98" r="8" fill="#25d5e6"/>
+  <text x="114" y="107" fill="#f5f8fc" font-family="Arial, Helvetica, sans-serif" font-size="27" font-weight="700" letter-spacing=".5">DIGITAL TWIN — LIVE SHOP-FLOOR MONITOR</text>
+  <text x="1233" y="105" fill="#6be7c3" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700" text-anchor="end" letter-spacing="2">LIVE</text>
+  <circle cx="1307" cy="99" r="6" fill="#43dda9"/>
+  <path d="M64 139H1336" stroke="#294866" stroke-width="2"/>
+
+  <g stroke="#5b7c9a" stroke-width="2" stroke-dasharray="7 12" fill="none" opacity=".8">
+    <path d="M185 346C300 350 362 450 493 572"/>
+    <path d="M690 224C665 350 645 440 618 575"/>
+    <path d="M1120 316C1035 370 974 470 908 572"/>
+    <path d="M1160 440C1130 498 1084 544 1050 578"/>
+  </g>
+
+  <g font-family="Arial, Helvetica, sans-serif">
+    <rect x="79" y="178" width="236" height="115" rx="19" fill="#f8fbff" stroke="#aab9ca" stroke-width="2"/>
+    <text x="102" y="215" fill="#1b2939" font-size="18" font-weight="700">Machine Utilisation</text>
+    <text x="102" y="260" fill="#18a86c" font-size="31" font-weight="700">87%</text>
+
+    <rect x="573" y="145" width="256" height="112" rx="19" fill="#f8fbff" stroke="#aab9ca" stroke-width="2"/>
+    <text x="596" y="183" fill="#1b2939" font-size="18" font-weight="700">Predicted Downtime</text>
+    <text x="596" y="226" fill="#d94646" font-size="31" font-weight="700">−42%</text>
+
+    <rect x="1008" y="236" width="230" height="112" rx="19" fill="#f8fbff" stroke="#aab9ca" stroke-width="2"/>
+    <text x="1031" y="275" fill="#1b2939" font-size="18" font-weight="700">Next Tool Change</text>
+    <text x="1031" y="318" fill="#d39321" font-size="31" font-weight="700">12 min</text>
+
+    <rect x="1092" y="393" width="220" height="112" rx="19" fill="#f8fbff" stroke="#aab9ca" stroke-width="2"/>
+    <text x="1115" y="432" fill="#1b2939" font-size="18" font-weight="700">Active Jobs</text>
+    <text x="1115" y="475" fill="#2869cf" font-size="29" font-weight="700">6 running</text>
+  </g>
+
+  <g transform="translate(1210 155)" fill="#e9f1fb">
+    <path d="M32 46c-14 0-25-10-25-22S18 3 31 5c7-12 25-13 34-3 15-2 27 9 27 22 0 12-10 22-23 22z"/>
+    <path d="M43 7a22 22 0 0 1 0 39" fill="none" stroke="#152942" stroke-width="4"/>
+    <text x="48" y="67" fill="#b9cce0" font-family="Arial, Helvetica, sans-serif" font-size="14" text-anchor="middle">Cloud Sync</text>
+  </g>
+
+  <g fill="#27d4e4">
+    <circle cx="493" cy="572" r="7"/><circle cx="618" cy="575" r="7"/>
+  </g>
+  <circle cx="908" cy="572" r="7" fill="#ffc629"/>
+  <circle cx="1050" cy="578" r="7" fill="#42e0ad"/>
+
+  <g stroke="#081625" stroke-width="3">
+    <path d="M270 692L385 626L500 692L385 759Z" fill="url(#cyanFace)"/>
+    <path d="M270 692L385 759V779L270 718Z" fill="url(#cyanSide)"/>
+    <path d="M385 759L500 692V718L385 779Z" fill="#0b718a"/>
+    <path d="M560 719L647 669L734 719L647 769Z" fill="url(#purpleFace)"/>
+    <path d="M560 719L647 769V779L560 737Z" fill="#7650a8"/>
+    <path d="M647 769L734 719V737L647 779Z" fill="#61408d"/>
+    <path d="M792 684L915 614L1038 684L915 755Z" fill="url(#goldFace)"/>
+    <path d="M792 684L915 755V779L792 714Z" fill="#bd8710"/>
+    <path d="M915 755L1038 684V714L915 779Z" fill="#9d700d"/>
+    <path d="M1080 728L1154 685L1228 728L1154 771Z" fill="url(#greenFace)"/>
+    <path d="M1080 728L1154 771V779L1080 746Z" fill="#128d70"/>
+    <path d="M1154 771L1228 728V746L1154 779Z" fill="#0b765e"/>
+  </g>
+  <g fill="#f5fbff" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700" text-anchor="middle">
+    <text x="385" y="747">CNC Mill 01</text>
+    <text x="647" y="762">Wire-EDM</text>
+    <text x="915" y="745">5-Axis Centre</text>
+    <text x="1154" y="766">CMM Station</text>
+  </g>
+
+  <path d="M606 821H794L818 909H582Z" fill="#303744" stroke="#171c26" stroke-width="3"/>
+  <path d="M584 909H816L850 925H550Z" fill="#515866" stroke="#242a35" stroke-width="3"/>
+  <path d="M585 914H815L836 924H564Z" fill="#313844"/>
+</svg>
