@@ -589,6 +589,29 @@ section .section-intro{max-width:760px;font-size:1.04rem;line-height:1.9;margin-
   #visit .cell figure img{max-height:460px}
 }
 
+.concept-figure .concept-art{
+  max-width:100%;
+  overflow-x:auto;
+  overscroll-behavior-x:contain;
+  border:1px solid var(--line);
+  border-radius:14px;
+  background:#f3f5fa;
+}
+.concept-figure .concept-art img{
+  width:100%;
+  min-width:960px;
+  max-width:1120px;
+  height:auto;
+}
+.concept-figure figcaption{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  justify-content:space-between;
+  gap:8px 16px;
+}
+.concept-figure figcaption a{font-weight:600;white-space:nowrap}
+
 </style>
 </head>
 <body>
@@ -849,18 +872,22 @@ section .section-intro{max-width:760px;font-size:1.04rem;line-height:1.9;margin-
     <p>Our first direction is a browser-based dashboard that a supervisor keeps open all through the shift. Four summary counters across the top give a quick picture of the day’s work: total jobs scheduled, how many are in progress, how many are done and how many are still pending. A supervisor does not need to dig through paperwork to see how the shift is going.</p>
     <p>Below this, a live job table lists every machine with its current part number, the tool it is running, a colour-coded status such as “In Progress” or “Tool Change”, and an estimated finish time. One look shows where attention is needed. A panel shows machine utilisation as a simple percentage split between running, idle and maintenance time. A neighbouring alert box shows the next tool change that is due and counts down the minutes, so the technician can prepare in advance.</p>
     <p>Underneath, a simple system-flow diagram shows how data travels from each CNC machine and robotic cell, through an IoT interface, into a cloud or local server that processes and optimises the schedule, and then out to the dashboard and a companion mobile app. A short list of key features and benefits explains in plain language why automatic scheduling and real-time monitoring saves time, cuts cost and makes the shop floor easier to manage.</p>
-    <figure>
-      <img src="images/concept-dashboard.svg" alt="Real-time production scheduling dashboard concept showing CNC job status, machine utilisation, tool-change alerts and system flow" width="1600" height="1120" loading="lazy" decoding="async">
-      <figcaption>Concept 1: desktop view of the real-time production scheduling dashboard for CNC machines and robotic welding cells.</figcaption>
+    <figure class="concept-figure">
+      <div class="concept-art" role="region" aria-label="Scrollable dashboard concept graphic" tabindex="0">
+        <img src="images/concept-dashboard.svg" alt="Real-time production scheduling dashboard concept showing CNC job status, machine utilisation, tool-change alerts and system flow" width="1600" height="1120" loading="lazy" decoding="async">
+      </div>
+      <figcaption><span>Concept 1: desktop view of the real-time production scheduling dashboard. Scroll horizontally on small screens to read the labels.</span><a href="images/concept-dashboard.svg" target="_blank" rel="noopener">Open full-size diagram</a></figcaption>
     </figure>
 
     <h3>Prototype idea 2: 3-D digital twin</h3>
     <p>As a second direction, we imagined the same live data shown not as a flat table but as a 3-D digital-twin view on a large monitor fixed on the shop floor, where anyone walking past can see it from a distance. Each CNC machine, the wire-EDM unit, the robotic welding cells and the CMM inspection station is drawn as a simple colour-coded 3-D block. The colour shows the status at once (running, idle, tool change or maintenance) without anyone reading a word.</p>
     <p>Key numbers such as machine utilisation, predicted downtime, the time left until the next tool change and the number of active jobs float beside the models as small cards, joined by thin guide lines to the machine they describe. A supervisor walking through can see from across the room which station needs attention next.</p>
     <p>We felt this idea would be especially useful in busy shifts and for new supervisors who do not yet know every machine’s position and job code. A simple colour-coded 3-D layout is far faster to read under pressure than scrolling through rows of a table.</p>
-    <figure>
-      <img src="images/concept-digital-twin.svg" alt="Vector digital-twin shop-floor monitor concept showing live machine utilisation, downtime, tool change, active jobs and four machine models" width="1400" height="1000" loading="lazy" decoding="async">
-      <figcaption>Concept 2: 3-D digital-twin live monitoring display, shown on a shop-floor monitor.</figcaption>
+    <figure class="concept-figure">
+      <div class="concept-art" role="region" aria-label="Scrollable digital-twin concept graphic" tabindex="0">
+        <img src="images/concept-digital-twin.svg" alt="Vector digital-twin shop-floor monitor concept showing live machine utilisation, downtime, tool change, active jobs and four machine models" width="1400" height="1000" loading="lazy" decoding="async">
+      </div>
+      <figcaption><span>Concept 2: 3-D digital-twin live monitoring display. Scroll horizontally on small screens to read the labels.</span><a href="images/concept-digital-twin.svg" target="_blank" rel="noopener">Open full-size diagram</a></figcaption>
     </figure>
 
     <h3>6. Design thinking learning</h3>
