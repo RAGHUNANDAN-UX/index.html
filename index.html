@@ -553,6 +553,42 @@ section .section-intro{max-width:760px;font-size:1.04rem;line-height:1.9;margin-
  .work-card,.work-visual:after{transition:none}
 }
 
+
+/* GTTC photo clarity pass: preserve native detail and avoid hover resampling */
+#visit .cell figure{
+  padding:12px;
+  background:linear-gradient(145deg,rgba(18,31,52,.96),rgba(9,17,31,.98));
+  border:1px solid rgba(139,233,244,.24);
+  box-shadow:0 18px 44px rgba(0,0,0,.22),inset 0 1px 0 rgba(255,255,255,.06);
+}
+#visit .cell figure img{
+  display:block;
+  width:100%;
+  height:auto;
+  max-height:620px;
+  object-fit:contain;
+  object-position:center;
+  image-rendering:auto;
+  -webkit-backface-visibility:hidden;
+  backface-visibility:hidden;
+  transform:none !important;
+  filter:contrast(1.045) saturate(1.055);
+  border-radius:13px;
+}
+#visit .cell figure:hover img{
+  transform:none !important;
+  filter:contrast(1.07) saturate(1.08);
+}
+#visit .cell figure figcaption{
+  padding:8px 5px 2px;
+  color:var(--muted);
+  letter-spacing:.01em;
+}
+@media(max-width:700px){
+  #visit .cell figure{padding:8px}
+  #visit .cell figure img{max-height:460px}
+}
+
 </style>
 </head>
 <body>
