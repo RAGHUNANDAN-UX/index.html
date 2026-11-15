@@ -6,6 +6,7 @@ on:
     paths:
       - "images/**"
       - ".github/workflows/enhance-portfolio-photos.yml"
+      - "index.html"
 
 permissions:
   contents: write
