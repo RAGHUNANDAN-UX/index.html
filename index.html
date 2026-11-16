@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,7 +11,7 @@
 -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800;900&family=Outfit:wght@400;500;600;700;800;900&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
   --paper:#ECEDE8; --surface:#F8F8F5; --ink:#1C1E21; --muted:#575B62; --line:#CFD1CA;
@@ -613,6 +613,7 @@ section .section-intro{max-width:760px;font-size:1.04rem;line-height:1.9;margin-
 .concept-figure figcaption a{font-weight:600;white-space:nowrap}
 
 </style>
+<link rel="stylesheet" href="portfolio.css">
 </head>
 <body>
 <div id="scroll-progress" aria-hidden="true"></div>
@@ -648,6 +649,22 @@ section .section-intro{max-width:760px;font-size:1.04rem;line-height:1.9;margin-
       </div>
       <div class="hero-cube-wrap" aria-hidden="true"><div class="cube-scene"><div class="cube"><span></span><span></span><span></span><span></span><span></span><span></span></div></div><span>Build · Learn · Create</span></div>
     </div>
+    <div class="hero-visual">
+      <div class="profile-card">
+        <img src="images/profile-portrait.jpg" alt="Portrait of Raghunandan on a blue background" loading="eager" decoding="async">
+        <div class="profile-label"><span></span><div><b>Raghunandan</b><small>Computer Science · AI</small></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="lab-section" id="playground">
+  <div class="wrap">
+    <div class="lab-intro">
+      <span class="eyebrow">Interactive learning</span>
+      <h2>Ideas you can explore</h2>
+      <p class="section-intro">A small gradient-descent playground that turns an optimisation idea into something you can see and adjust.</p>
+    </div>
     <div class="lab">
       <canvas id="gd" role="img" aria-label="A ball moving down a loss curve using gradient descent. The sliders below change the learning rate and the starting point."></canvas>
       <div class="controls">
@@ -664,7 +681,7 @@ section .section-intro{max-width:760px;font-size:1.04rem;line-height:1.9;margin-
       <p class="hint">Gradient descent rolls the ball downhill: <code>x ← x − η · f′(x)</code>. Move the sliders and watch.</p>
     </div>
   </div>
-</div>
+</section>
 
 
 <section id="work" class="work-section">
@@ -688,7 +705,7 @@ section .section-intro{max-width:760px;font-size:1.04rem;line-height:1.9;margin-
             <li>Lets you experiment with different starting points.</li>
             <li>Connects derivatives to an iterative algorithm.</li>
           </ul>
-          <a class="work-link" href="#home">Explore the live simulation <span aria-hidden="true">↗</span></a>
+          <a class="work-link" href="#playground">Explore the live simulation <span aria-hidden="true">↗</span></a>
         </div>
       </article>
       <article class="work-card work-card-design">
@@ -1071,14 +1088,14 @@ section .section-intro{max-width:760px;font-size:1.04rem;line-height:1.9;margin-
     ctx.fillText('minimum', px(0), py(0)+19);
 
     var done = Math.min(Math.floor(t), path.length-1);
-    ctx.globalAlpha = 0.55; ctx.fillStyle = '#FF9F43';
+    ctx.globalAlpha = 0.55; ctx.fillStyle = '#48a9c2';
     for (var n = 0; n <= done; n++){
       ctx.beginPath(); ctx.arc(px(path[n]), py(f(clampX(path[n]))), 4, 0, 6.2832); ctx.fill();
     }
     ctx.globalAlpha = 1;
 
     var bx = pos();
-    ctx.fillStyle = '#F2BE0A';
+    ctx.fillStyle = '#6bd0d5';
     ctx.beginPath(); ctx.arc(px(bx), py(f(clampX(bx))), 9, 0, 6.2832); ctx.fill();
 
     var step = Math.min(Math.floor(t + 0.001), path.length-1), xs = path[step];
@@ -1121,7 +1138,7 @@ section .section-intro{max-width:760px;font-size:1.04rem;line-height:1.9;margin-
   window.addEventListener('scroll', progress, {passive:true}); progress();
 
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var revealItems = document.querySelectorAll('section .wrap, .cell, .callout, .edu, dl.skills');
+  var revealItems = document.querySelectorAll('section .wrap, .cell, .callout, .edu, dl.skills, #home .wrap > div:first-child > *, #home .profile-card, .work-card');
   if (!reduce && 'IntersectionObserver' in window){
     revealItems.forEach(function(el){ el.classList.add('reveal'); });
     var observer = new IntersectionObserver(function(entries){
@@ -1141,6 +1158,30 @@ section .section-intro{max-width:760px;font-size:1.04rem;line-height:1.9;margin-
         card.style.transform='perspective(1000px) rotateX('+(-y*4).toFixed(2)+'deg) rotateY('+(x*5).toFixed(2)+'deg) translateY(-4px)';
       });
       card.addEventListener('pointerleave',function(){card.style.transform='';});
+    });
+
+    document.querySelectorAll('.work-card,.lab,.edu,.interest-list > div,#visit .cell figure').forEach(function(card){
+      card.addEventListener('pointermove',function(e){
+        var r=card.getBoundingClientRect();
+        card.style.setProperty('--spot-x',((e.clientX-r.left)/r.width*100).toFixed(1)+'%');
+        card.style.setProperty('--spot-y',((e.clientY-r.top)/r.height*100).toFixed(1)+'%');
+      });
+      card.addEventListener('pointerleave',function(){
+        card.style.setProperty('--spot-x','50%');
+        card.style.setProperty('--spot-y','0%');
+      });
+    });
+
+    document.querySelectorAll('.btn.primary').forEach(function(button){
+      button.addEventListener('pointermove',function(e){
+        var r=button.getBoundingClientRect();
+        button.style.setProperty('--mag-x',(((e.clientX-r.left)/r.width-.5)*8).toFixed(1)+'px');
+        button.style.setProperty('--mag-y',(((e.clientY-r.top)/r.height-.5)*6).toFixed(1)+'px');
+      });
+      button.addEventListener('pointerleave',function(){
+        button.style.setProperty('--mag-x','0px');
+        button.style.setProperty('--mag-y','0px');
+      });
     });
   }
 
